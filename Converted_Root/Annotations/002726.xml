@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+    <folder>ar0001_kakaku_kB0000150792.jpg</folder>
+    <filename>002726.jpg</filename>
+    <source>
+        <database>The VOC2007 Database</database>
+        <annotation>PASCAL VOC2007</annotation>
+    </source>
+    <size>
+        <width>512</width>
+        <height>512</height>
+        <depth>3</depth>
+    </size>
+    <object>
+        <name>Character</name>
+        <occluded>0</occluded>
+        <bndbox>
+            <xmin>146</xmin>
+            <ymin>242</ymin>
+            <xmax>187</xmax>
+            <ymax>269</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Character</name>
+        <occluded>0</occluded>
+        <bndbox>
+            <xmin>189</xmin>
+            <ymin>242</ymin>
+            <xmax>223</xmax>
+            <ymax>267</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Character</name>
+        <occluded>0</occluded>
+        <bndbox>
+            <xmin>227</xmin>
+            <ymin>243</ymin>
+            <xmax>272</xmax>
+            <ymax>268</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Character</name>
+        <occluded>0</occluded>
+        <bndbox>
+            <xmin>272</xmin>
+            <ymin>241</ymin>
+            <xmax>312</xmax>
+            <ymax>270</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Character</name>
+        <occluded>0</occluded>
+        <bndbox>
+            <xmin>313</xmin>
+            <ymin>242</ymin>
+            <xmax>350</xmax>
+            <ymax>268</ymax>
+        </bndbox>
+    </object>
+</annotation>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+    <folder>ar0001_kakaku_kB0000152839.jpg</folder>
+    <filename>003680.jpg</filename>
+    <source>
+        <database>The VOC2007 Database</database>
+        <annotation>PASCAL VOC2007</annotation>
+    </source>
+    <size>
+        <width>512</width>
+        <height>512</height>
+        <depth>3</depth>
+    </size>
+    <object>
+        <name>Character</name>
+        <occluded>0</occluded>
+        <bndbox>
+            <xmin>8</xmin>
+            <ymin>4</ymin>
+            <xmax>138</xmax>
+            <ymax>80</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Character</name>
+        <occluded>0</occluded>
+        <bndbox>
+            <xmin>7</xmin>
+            <ymin>82</ymin>
+            <xmax>143</xmax>
+            <ymax>159</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Character</name>
+        <occluded>0</occluded>
+        <bndbox>
+            <xmin>9</xmin>
+            <ymin>161</ymin>
+            <xmax>137</xmax>
+            <ymax>228</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Character</name>
+        <occluded>0</occluded>
+        <bndbox>
+            <xmin>9</xmin>
+            <ymin>230</ymin>
+            <xmax>143</xmax>
+            <ymax>305</ymax>
+        </bndbox>
+    </object>
+</annotation>
