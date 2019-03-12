@@ -1,6 +1,5 @@
-classes= 20
-train  = /home/pjreddie/data/voc/train.txt
-valid  = /home/pjreddie/data/voc/2007_test.txt
+classes= 1
+train  = ../aushop_fullbody_tx2vx01_20190225/Converted_Root/ImageSets/Main/train.txt
+valid  = ../aushop_fullbody_tx2vx01_20190225/Converted_Root/ImageSets/Main/val.txt
 names = data/voc.names
 backup = backup
-
