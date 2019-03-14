@@ -2,4 +2,4 @@ classes= 1
 train  = Converted_Root/train.txt
 valid  = Converted_Root/val.txt
 names = Converted_Root/voc.names
-backup = backup
+backup = backup/
