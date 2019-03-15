@@ -129,8 +129,8 @@ class Darknet():
         
 
     def detect(self, image):
-        image = image.encode()
-        im = self.load_image(image, 0, 0)
+        print(image)
+        im = self.load_image(image.encode(), 0, 0)
         num = c_int(0)
         pnum = pointer(num)
         self.predict_image(self.net, im)

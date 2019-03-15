@@ -25,6 +25,7 @@ def parse_args():
 
 if __name__ == '__main__':
     args = parse_args()
+    FrameImages = list()
     print("------------------------------")
 #    print("in FrmDir     　:%s" % args.inFrmDir)
     print("out MOT data    :%s" % args.OutMOT)
@@ -44,7 +45,10 @@ if __name__ == '__main__':
         print("入力ディレクトリが存在しません。: %s" % args.inFrmDir)
         sys.exit()
     else:
-        FrameImages = sorted(glob.glob(os.path.join(args.inFrmDir, '*.jpg')))
+        with open("Converted_Root/val.txt", "r") as val_txt:
+            for testdata_path in val_txt:
+                FrameImages.append(testdata_path.strip())
+#        FrameImages = sorted(glob.glob(os.path.join(args.inFrmDir, '*.jpg')))
         
     if(len(FrameImages) == 0):
         print( "入力フレームが存在しません。: %s" % args.inFrmDir)
@@ -65,9 +69,11 @@ if __name__ == '__main__':
     darknet = Darknet(config=args.config, model=args.model,thresh=args.thresh,hier_thresh=args.hier_thresh,nms=args.nms)
 
     accum=0
+    no = 0
     for i in range(numFrames):
+        no += 1
         imgName = os.path.basename(FrameImages[i])
-        fno = int(imgName.split(".")[0])
+        fno = imgName.split(".")[0]
         st_time = cv2.getTickCount()
         r = darknet.detect(FrameImages[i])
         ed_time = cv2.getTickCount()
@@ -79,7 +85,8 @@ if __name__ == '__main__':
         for j in range(numObj):
             TLx = r[j][2][0] - (r[j][2][2]/2)
             TLy = r[j][2][1] - (r[j][2][3]/2)
-            OutMOT.write("%d,-1,%5.2f,%5.2f,%5.2f,%5.2f,1,-1,-1\n" %(fno, TLx,TLy,r[j][2][2],r[j][2][3]))
+            OutMOT.write("%d,-1,%d,%d,%d,%d\n" %(no, TLx, TLy, r[j][2][2], r[j][2][3]))
+#            OutMOT.write("%d,-1,%5.2f,%5.2f,%5.2f,%5.2f\n" %(no, TLx,TLy,r[j][2][2],r[j][2][3]))
 #             file.write(string)
             print("fno:%d nObj:%d time:%f ms" % (i,j, diff * 1000.0 / cv2.getTickFrequency() ))
 #        FrameImage = cv2.imread(FrameImages[i])
