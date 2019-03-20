@@ -1,5 +1,5 @@
 classes= 1
-train  = ../aushop_fullbody_tx2vx01_20190225/Converted_Root/ImageSets/Main/train.txt
-valid  = ../aushop_fullbody_tx2vx01_20190225/Converted_Root/ImageSets/Main/val.txt
-names = data/voc.names
+train  = ../aushop_fullbody_tvx1_20190227/Converted_Root/ImageSets/Main/train.txt
+valid  = ../aushop_fullbody_tvx1_20190227/Converted_Root/ImageSets/Main/val.txt
+names = ../aushop_fullbody_tvx1_20190227/Converted_Root/voc.names
 backup = backup
