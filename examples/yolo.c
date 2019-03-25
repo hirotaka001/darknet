@@ -13,13 +13,6 @@ void train_yolo(char *cfgfile, char *weightfile)
     float avg_loss = -1;
     network *net = load_network(cfgfile, weightfile, 0);
     printf("Learning Rate: %g, Momentum: %g, Decay: %g\n", net->learning_rate, net->momentum, net->decay);
-    outputfile = fopen("logs/loss.txt", "a");
-    if (outputfile == NULL) {
-      printf("cannot open\n");
-      exit(1);
-    }
-    fprintf(outputfile, "step %d, error %f\n", i, avg_loss);
-    fclose(outputfile);
     int imgs = net->batch*net->subdivisions;
     int i = *net->seen/imgs;
     data train, buffer;
@@ -70,6 +63,13 @@ void train_yolo(char *cfgfile, char *weightfile)
         avg_loss = avg_loss*.9 + loss*.1;
 
         printf("%d: %f, %f avg, %f rate, %lf seconds, %d images\n", i, loss, avg_loss, get_current_rate(net), sec(clock()-time), i*imgs);
+        outputfile = fopen("logs/loss.txt", "a");
+        if (outputfile == NULL) {
+          printf("cannot open\n");
+          exit(1);
+        }
+        fprintf(outputfile, "step %d, error %f\n", i, avg_loss);
+        fclose(outputfile);
         if(i%1000==0 || (i < 1000 && i%100 == 0)){
             char buff[256];
             sprintf(buff, "%s/%s_%d.weights", backup_directory, base, i);
