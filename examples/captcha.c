@@ -26,6 +26,7 @@ void fix_data_captcha(data d, int mask)
 
 void train_captcha(char *cfgfile, char *weightfile)
 {
+    FILE *outputfile;
     srand(time(0));
     float avg_loss = -1;
     char *base = basecfg(cfgfile);
@@ -81,6 +82,13 @@ void train_captcha(char *cfgfile, char *weightfile)
         if(avg_loss == -1) avg_loss = loss;
         avg_loss = avg_loss*.9 + loss*.1;
         printf("%d: %f, %f avg, %lf seconds, %ld images\n", i, loss, avg_loss, sec(clock()-time), *net->seen);
+        outputfile = fopen("logs/loss.txt", "a");
+        if (outputfile == NULL) {
+          printf("cannot open\n");
+          exit(1);
+        }
+        fprintf(outputfile, "step %d, error %f\n", i, avg_loss);
+        fclose(outputfile);
         free_data(train);
         if(i%100==0){
             char buff[256];
