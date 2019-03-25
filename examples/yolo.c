@@ -4,6 +4,7 @@ char *voc_names[] = {"aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "c
 
 void train_yolo(char *cfgfile, char *weightfile)
 {
+    FILE *outputfile;
     char *train_images = "/data/voc/train.txt";
     char *backup_directory = "/home/pjreddie/backup/";
     srand(time(0));
@@ -12,6 +13,13 @@ void train_yolo(char *cfgfile, char *weightfile)
     float avg_loss = -1;
     network *net = load_network(cfgfile, weightfile, 0);
     printf("Learning Rate: %g, Momentum: %g, Decay: %g\n", net->learning_rate, net->momentum, net->decay);
+    outputfile = fopen("logs/loss.txt", "a");
+    if (outputfile == NULL) {
+      printf("cannot open\n");
+      exit(1);
+    }
+    fprintf(outputfile, "step %d, error %f\n", i, avg_loss);
+    fclose(outputfile);
     int imgs = net->batch*net->subdivisions;
     int i = *net->seen/imgs;
     data train, buffer;
