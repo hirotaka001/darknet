@@ -38,6 +38,7 @@ void extract_voxel(char *lfile, char *rfile, char *prefix)
 
 void train_voxel(char *cfgfile, char *weightfile)
 {
+    FILE *outputfile;
     char *train_images = "/data/imagenet/imagenet1k.train.list";
     char *backup_directory = "/home/pjreddie/backup/";
     srand(time(0));
@@ -86,6 +87,12 @@ void train_voxel(char *cfgfile, char *weightfile)
         avg_loss = avg_loss*.9 + loss*.1;
 
         printf("%d: %f, %f avg, %f rate, %lf seconds, %d images\n", i, loss, avg_loss, get_current_rate(net), sec(clock()-time), i*imgs);
+        outputfile = fopen("logs/loss.txt", "a");
+        if (outputfile == NULL) {
+          printf("cannot open\n");
+          exit(1);
+        }
+        fprintf(outputfile, "step %d, error %f\n", i, avg_loss);
         if(i%1000==0){
             char buff[256];
             sprintf(buff, "%s/%s_%d.weights", backup_directory, base, i);
