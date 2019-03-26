@@ -133,7 +133,7 @@ void train_detector(char *datacfg, char *cfgfile, char *weightfile, int *gpus, i
           printf("cannot open\n");
           exit(1);
         }
-        fprintf(outputfile, "step %ld, error %f\n", get_current_batch(net), avg_loss);
+        fprintf(outputfile, "%ld,%f\n", get_current_batch(net), avg_loss);
         fclose(outputfile);
         if(i%100==0){
 #ifdef GPU
