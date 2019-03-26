@@ -8,7 +8,6 @@ int coco_ids[] = {1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21,22,23,24,25
 
 void train_coco(char *cfgfile, char *weightfile)
 {
-    FILE *outputfile;
     //char *train_images = "/home/pjreddie/data/voc/test/train.txt";
     //char *train_images = "/home/pjreddie/data/coco/train.txt";
     char *train_images = "data/coco.trainval.txt";
@@ -78,13 +77,6 @@ void train_coco(char *cfgfile, char *weightfile)
         avg_loss = avg_loss*.9 + loss*.1;
 
         printf("%d: %f, %f avg, %f rate, %lf seconds, %d images\n", i, loss, avg_loss, get_current_rate(net), sec(clock()-time), i*imgs);
-        outputfile = fopen("logs/loss.txt", "a");
-        if (outputfile == NULL) {
-          printf("cannot open\n");
-          exit(1);
-        }
-        fprintf(outputfile, "step %d, error %f\n", i, avg_loss);
-        fclose(outputfile);
         if(i%1000==0 || (i < 1000 && i%100 == 0)){
             char buff[256];
             sprintf(buff, "%s/%s_%d.weights", backup_directory, base, i);
