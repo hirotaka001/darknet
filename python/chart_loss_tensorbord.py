@@ -4,8 +4,9 @@ import tensorboardX as tbx
 writer = tbx.SummaryWriter("../logs/exp-1")
 
 with open("../logs/loss.txt") as f:
-    line = f.readline()
-    num = line.split(',')
-    writer.add_scalar("group/epoch", num[1], num[0])
+    line = f.readline().strip()
+    for i in line:
+        num = line.split(',')
+        writer.add_scalar("group/epoch", num[1], num[0])
 
 writer.close()
