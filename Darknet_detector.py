@@ -45,7 +45,7 @@ if __name__ == '__main__':
         print("入力ディレクトリが存在しません。: %s" % args.inFrmDir)
         sys.exit()
     else:
-        with open("../aushop_fullbody_tvx1_20190227/Converted_Root/val.txt", "r") as val_txt:
+        with open("/mnt/data/Trial_Asaka/ImageSets/Main/val.txt", "r") as val_txt:
             for testdata_path in val_txt:
                 FrameImages.append(testdata_path.strip())
 #        FrameImages = sorted(glob.glob(os.path.join(args.inFrmDir, '*.jpg')))
