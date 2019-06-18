@@ -45,9 +45,9 @@ if __name__ == '__main__':
         print("入力ディレクトリが存在しません。: %s" % args.inFrmDir)
         sys.exit()
     else:
-        with open("/mnt/data/Trial_Asaka/ImageSets/Main/val.txt", "r") as val_txt:
+        with open("/mnt/data/Trial_Kiyose/ImageSets/Main/val.txt", "r") as val_txt:
             for testdata_path in val_txt:
-                FrameImages.append("/mnt/data/Trial_Asaka/JPEGImages/" + testdata_path.strip() + ".jpg")
+                FrameImages.append("/mnt/data/Trial_Kiyose/JPEGImages/" + testdata_path.strip() + ".jpg")
 #        FrameImages = sorted(glob.glob(os.path.join(args.inFrmDir, '*.jpg')))
         
     if(len(FrameImages) == 0):

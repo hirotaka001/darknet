@@ -1,5 +1,5 @@
 classes= 1
-train  = /mnt/data/Trial_Asaka/ImageSets/Main/train.txt
-valid  = /mnt/data/Trial_Asaka/ImageSets/Main/val.txt
-names = /mnt/data/Trial_Asaka/voc.names
+train  = /mnt/data/Trial_Kiyose/ImageSets/Main/train.txt
+valid  = /mnt/data/Trial_Kiyose/ImageSets/Main/val.txt
+names = /mnt/data/Trial_Kiyose/voc.names
 backup = backup
